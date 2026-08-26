@@ -1,0 +1,32 @@
+{
+  "calibration_id": "lj38-audit-v0.3.5-calibration",
+  "contract_b_emitted": false,
+  "error": {
+    "message": "insufficient thinned mu_pt anneal_2over3_to_1over3: 37",
+    "type": "CalibrationError"
+  },
+  "failed_at_utc": "2026-08-26T23:56:47.2377710Z",
+  "last_completed_cell": "p_mu/pt/pilot/seed=105",
+  "precommitments": {
+    "calibration_driver_sha256": "35061774f9dbd1149b361b2d8174ef6deeb2754a0cd17414aa3aa06a7a982e98",
+    "calibration_execution_order_sha256": "cbaa26cf3bfbd5cfa2b5f149f3cbdfa62579a836d86ea916527d17843ea3953e",
+    "calibration_protocol_sha256": "d626ca30a611cda144195e38000ff3473d5135c2bac3ae84d58c06cd806bb7d4",
+    "contract_a_sha256": "cf2fa8d201d6d560f3bf6fed51bdd2842390d594e7307804445c141b7f605580",
+    "instrument_manifest_sha256": "e34084d3bdc41e4f2c7807f5a5f497493e85ed037664dfda4078c5fbf276772a",
+    "instrument_sha256": "4f411d1b54440aa33ac0403fe1a7fb0655b951f59bc13f70c3dff81b70657429"
+  },
+  "reason_for_stop": "The precommitted n_per_traj was 40. One pilot PT trajectory provided only 37 observations after the frozen Geyer IPS thinning in the middle anneal layer. Lowering n_per_traj or increasing the trajectory budget after observing this would change a precommitted numeric rule.",
+  "recovery_scope": "A new contract/protocol version is required. The present v0.3.5 calibration raw data may be used only as disclosed development evidence and must not be reused as an untouched calibration or holdout set.",
+  "scientific_findings_emitted": false,
+  "status": "CALIBRATION_FAIL",
+  "storage": {
+    "checkpoint_canonical_equals_raw": true,
+    "checkpoint_path": "calibration_v035/CALIBRATION_STORE_V035.json",
+    "checkpoint_sha256": "4c5d922dcf0b3b194eb771feb08b14db4e5fe41dd3b47b102db5a076fd9b5b5d",
+    "duplicate_calibration_keys": 0,
+    "raw_bytes": 57475438,
+    "raw_path": "calibration_v035/CALIBRATION_RAW_V035.jsonl",
+    "raw_rows": 37,
+    "raw_sha256": "aa8f5a8fbe7bb08f43002247de30ab7e2189b217f9eed8d8fcc19a64e7ed85fa"
+  }
+}
