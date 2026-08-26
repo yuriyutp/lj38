@@ -1,0 +1,22 @@
+{
+  "execution_order_id": "lj38-audit-v0.3.5-calibration-order-1",
+  "protocol_sha256": "d626ca30a611cda144195e38000ff3473d5135c2bac3ae84d58c06cd806bb7d4",
+  "steps": [
+    "verify contract, instrument, protocol, reference-coordinate, and anchor-2 digests",
+    "select T_BH from the complete A0 grid",
+    "run a pilot p_mu collection with h=0.7, sigma=2.0, M=8, Tlo=0.05, Thi=0.20 and select pilot g_tol/g_tol_hill",
+    "select h and sigma from the complete A3 grid using the pilot gate values",
+    "select the A1/A6 ladder, then the acceptance-matched A7 ladder",
+    "repeat p_mu collection at the selected h, sigma, and A1 ladder; recompute g_tol/g_tol_hill and stop if either differs from the pilot value",
+    "select q_r, p_min, tau_bh, tau_pt, and diag_grad_budget from the final p_mu evidence",
+    "select MD integrator and matched B1/B2 proposal scales",
+    "select projected-Hessian finite-difference width and eigenvalue thresholds",
+    "run the final all-arm calibration probe and derive sham bands, k_max, and t_max_screen",
+    "derive delta_tie, validate all Contract B bindings, and write calibration raw/checkpoint/Contract B artifacts"
+  ],
+  "stopping_rules": {
+    "fixed_point": "If final p_mu changes g_tol or g_tol_hill relative to the pilot selection, stop without iterating or choosing after inspection.",
+    "no_partial_grid": "No candidate may be selected until every candidate-seed cell required by its grid has a valid cached record.",
+    "no_holdout": "Any attempted seed outside 100-105 before anchor-4 is a fatal integrity error."
+  }
+}
