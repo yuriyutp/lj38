@@ -36,6 +36,7 @@
     "penalty_fire_threshold": 1e-12,
     "pt_Thi": 0.2,
     "pt_Tlo": 0.05,
+    "pt_trajectory_search_budget": 180000,
     "pythonhashseed": 0,
     "raw_indicator_target_bh": 200,
     "screening_budget": 150000,
@@ -56,7 +57,7 @@
     "sham": "If an operation-check metric is undefined in any calibration pair, stop rather than silently widening its band."
   },
   "instrument_sha256": "4f411d1b54440aa33ac0403fe1a7fb0655b951f59bc13f70c3dff81b70657429",
-  "protocol_id": "lj38-audit-v0.3.5-aux-calibration-protocol-1",
+  "protocol_id": "lj38-audit-v0.3.5-aux-calibration-protocol-2",
   "selection_rules": {
     "T_BH": "Run A0 for every candidate and seed at the calibration budget. Minimize median best energy; ties within 1e-9 choose larger median nquench, then smaller T_BH.",
     "diag_grad_budget": "Let U be all diagnostic gradient calls used by p_mu and Hessian calibration. Freeze ceil(U*1.25/10000)*10000.",
@@ -71,11 +72,12 @@
     "pt_A1_A6": "With selected h,sigma,g tolerances, run A1 at fixed Tlo=0.05,Thi=0.20 for M in the grid. For each candidate compute the minimum adjacent-pair acceptance and pooled first-two-anneal-interval acceptance. Prefer candidates with min pair acceptance in [0.10,0.45]; among them minimize absolute deviation of pooled pre-tail acceptance from 0.20, then choose smaller M. If none is in band, maximize min pair acceptance, then minimize deviation from 0.20, then smaller M. A6 uses this exact ladder.",
     "pt_A7": "Run PT-only on each listed ladder with M inherited from A1. Choose the candidate minimizing absolute difference between pooled first-two-anneal-interval acceptance and the selected A1 value; ties choose larger log(Thi/Tlo), then larger Thi.",
     "q_r": "Using all converged calibration descriptors, form pairs whose energy differs by more than 0.1 epsilon. Let d_min be their minimum descriptor distance. Choose the smallest r for which 4*sqrt(703)*0.5*10^-r < d_min. If no candidate satisfies it, stop.",
-    "sham_bands": "For penalty_energy_mean, penalty_fire_rate, accept_flip_rate, nearest_center_mean, and donor_overlap_rate, compute the six A4 calibration values at final parameters. Freeze [max(0,q05-0.20*max(abs(q05),1e-12)), q95+0.20*max(abs(q95),1e-12)]. A screening A4 run passes only if every metric lies in its band. f_sham_max is fixed above, not estimated from these six pairs.",
+    "sham_bands": "For each seed pair A3 with A4 at final parameters. For the strictly positive metrics penalty_energy_mean, penalty_fire_rate, accept_flip_rate, and nearest_center_mean, form log((A4+1e-12)/(A3+1e-12)); for donor_overlap_rate form A4-A3. For each transformed metric freeze [q05-0.20*max(q95-q05,0.10), q95+0.20*max(q95-q05,0.10)]. A screening pair passes only if every transformed metric lies in its band. f_sham_max is fixed above, not estimated from these six pairs.",
     "t_max_screen": "Take the maximum median recipient-only wall time among final-probe A4, B2, A6, A7. Scale linearly from calibration budget to 150000, multiply by 1.25, and round upward to the next 10 seconds.",
     "tau": "Apply the frozen Geyer IPS function separately to each raw gate-indicator trajectory. Freeze tau_bh and tau_pt as the maximum ceil(2*tau_int) across, respectively, all BH trajectories and all PT trajectories/layers. Retain the first n_per_traj observations after deterministic thinning; no burn-in.",
     "tie_threshold": "Repeat every reference energy evaluation 32 times. Freeze delta_tie=max(1e-6,100*maximum absolute repeat discrepancy). The additional deterministic selection tie epsilon is 1e-12."
   },
   "status": "AUXILIARY_PRECALIBRATION_PROTOCOL",
-  "version": 1
+  "supersedes_before_calibration_data": "lj38-audit-v0.3.5-aux-calibration-protocol-1",
+  "version": 2
 }
