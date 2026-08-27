@@ -1,0 +1,32 @@
+{
+  "event_id": "calibration-v036-manual-interruption-001",
+  "recorded_at_utc": "2026-08-27T00:25:11.8030256Z",
+  "classification": "pre-result manual interruption; not a scientific calibration failure",
+  "trigger": "The frozen driver writes V036-named artifacts under the calibration_v035 directory. Execution was conservatively interrupted before confirming whether V035 evidence was read.",
+  "post_interruption_audit": {
+    "contract_or_protocol_fixed_output_directory": false,
+    "v035_raw_or_store_read_by_v036_ledger": false,
+    "v035_evidence_modified": false,
+    "directory_colocation_only": true
+  },
+  "interruption_state": {
+    "raw_path": "calibration_v035/CALIBRATION_RAW_V036.jsonl",
+    "raw_bytes": 17144768,
+    "raw_sha256": "4880c6237ca9615097e56c62346dee25da7373889ad1e4b01971452625741759",
+    "raw_rows": 29,
+    "raw_unique_keys": 29,
+    "last_key": "p_mu/bh/seed=109",
+    "checkpoint_path": "calibration_v035/CALIBRATION_STORE_V036.json",
+    "checkpoint_bytes": 23756820,
+    "checkpoint_sha256": "718f3f7231fd2c95fce222a7585dbb880dc2da3da8abe4416491c06f4e39e527",
+    "checkpoint_keys": 28,
+    "raw_equals_checkpoint": false,
+    "atomic_temp_path": "calibration_v035/CALIBRATION_STORE_V036.json.0rb72dl_.tmp",
+    "atomic_temp_bytes": 29017928,
+    "atomic_temp_sha256": "acee29b9b056d822831b2bc8058000e1327dbea0e13e5b391da3926f594d6829",
+    "atomic_temp_keys": 29,
+    "raw_equals_atomic_temp": true
+  },
+  "recovery_rule": "Preserve the 28-key checkpoint as an interruption backup, promote the byte-identical 29-key atomic temporary checkpoint, then require canonical raw/store equality before resume.",
+  "scientific_use": "No calibration value is selected from this interruption event. The recovered ledger may be resumed only because its append-only raw records and candidate checkpoint are canonically identical."
+}

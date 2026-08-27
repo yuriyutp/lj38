@@ -1,0 +1,79 @@
+{
+  "calibration_id": "lj38-audit-v0.3.6-calibration-protocol-1",
+  "status": "CALIBRATION_FAIL",
+  "recorded_at_utc": "2026-08-27T07:58:08.3627599Z",
+  "error_type": "CalibrationError",
+  "error_message": "insufficient thinned mu_pt anneal_2over3_to_1over3: 39",
+  "failed_rule": "failure_rules.sample_size",
+  "required_n_per_traj": 40,
+  "observed_failure": {
+    "g_tol_candidate": 0.00001,
+    "seed": 110,
+    "anneal_layer": "anneal_2over3_to_1over3",
+    "raw_observations": 39,
+    "ips_thin": 1,
+    "retained_observations": 39,
+    "tau_int": 0.5
+  },
+  "candidate_grid_audit": [
+    {
+      "g_tol": 0.00001,
+      "minimum_retained_n": 39,
+      "minimum_cell": "seed=110, anneal_2over3_to_1over3"
+    },
+    {
+      "g_tol": 0.00003,
+      "minimum_retained_n": 11,
+      "minimum_cell": "seed=111, anneal_2over3_to_1over3"
+    },
+    {
+      "g_tol": 0.0001,
+      "minimum_retained_n": 5,
+      "minimum_cell": "seed=110, anneal_1over3_to_0"
+    },
+    {
+      "g_tol": 0.0003,
+      "minimum_retained_n": 5,
+      "minimum_cell": "seed=110, anneal_1over3_to_0 and seed=111, anneal_2over3_to_1over3"
+    },
+    {
+      "g_tol": 0.001,
+      "minimum_retained_n": 5,
+      "minimum_cell": "seed=110, anneal_1over3_to_0"
+    }
+  ],
+  "ledger": {
+    "raw_path": "calibration_v035/CALIBRATION_RAW_V036.jsonl",
+    "raw_bytes": 77549658,
+    "raw_sha256": "eb08b661586732d918e5df3357655562fafc049e70eb9f57b8c66f13f3245c2f",
+    "raw_rows": 37,
+    "raw_unique_keys": 37,
+    "store_path": "calibration_v035/CALIBRATION_STORE_V036.json",
+    "store_bytes": 137042731,
+    "store_sha256": "5d9b49d135a29c05c8204cd6c4ad46673d785519549e6601bc1b1e1728f2fb17",
+    "store_keys": 37,
+    "raw_equals_store": true,
+    "duplicate_keys": 0
+  },
+  "provenance": {
+    "contract_a_sha256": "244a27990442d5bf4d3293480d9fc84a115afd3671d446f793d12012f40085a5",
+    "calibration_protocol_sha256": "c5a1817850d44217279a399af6776f1e65d910f264cb7c297d43e0e06fa03e01",
+    "instrument_sha256": "4f411d1b54440aa33ac0403fe1a7fb0655b951f59bc13f70c3dff81b70657429",
+    "instrument_manifest_sha256": "3b90f5f052c6757b2abfa45bb20a6bc39e8ec90d9edce336ea9881b969e8405a",
+    "calibration_driver_sha256": "64253394f64b6063fc1601833b8a13c51108be2d828a2bd711b7b7dc3acbdf0e",
+    "bootstrap_seed": 2614946071796962751,
+    "calibration_seeds": [106, 107, 108, 109, 110, 111]
+  },
+  "manual_interruption_record": {
+    "path": "calibration_v035/CALIBRATION_INTERRUPTION_V036_001.json",
+    "sha256": "b15d735e06a592a3e85ca5c52911ece6a3f04fd26a9f4946e17453be9fe8c57f",
+    "effect_on_final_ledger": "none; the 29-key atomic checkpoint was canonically equal to the 29 raw rows before resume"
+  },
+  "outputs_not_issued": [
+    "CONTRACT_B_V036.json",
+    "MANIFEST_B_V036.json",
+    "anchor-3"
+  ],
+  "interpretation": "The 300000-call PT trajectory budget improved the predecessor's limiting count from 37 to 39 but did not satisfy the preregistered minimum of 40. No result-dependent reduction of n_per_traj and no Contract B issuance are permitted.",
+  "scientific_status": "UNVERIFIED"
+}
