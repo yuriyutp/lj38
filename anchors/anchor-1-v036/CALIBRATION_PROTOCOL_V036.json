@@ -1,0 +1,223 @@
+{
+  "calibration_budget_per_search_run": 30000,
+  "calibration_seeds": [
+    106,
+    107,
+    108,
+    109,
+    110,
+    111
+  ],
+  "candidate_grids": {
+    "T_BH": [
+      0.5,
+      0.7,
+      0.9,
+      1.1
+    ],
+    "g_tol": [
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "g_tol_hill": [
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "h": [
+      0.35,
+      0.7,
+      1.4
+    ],
+    "hessian_epsilon": [
+      0.001,
+      0.0003,
+      0.0001,
+      3e-05,
+      1e-05
+    ],
+    "md_dt": [
+      0.0001,
+      0.0002,
+      0.0005,
+      0.001
+    ],
+    "md_e_kin": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "md_n_md": [
+      5,
+      10,
+      20,
+      40
+    ],
+    "pt_A1_M": [
+      6,
+      8,
+      10
+    ],
+    "pt_A7_ladders": [
+      {
+        "M_from_A1": true,
+        "Thi": 0.2,
+        "Tlo": 0.05
+      },
+      {
+        "M_from_A1": true,
+        "Thi": 0.16,
+        "Tlo": 0.05
+      },
+      {
+        "M_from_A1": true,
+        "Thi": 0.13,
+        "Tlo": 0.05
+      },
+      {
+        "M_from_A1": true,
+        "Thi": 0.12,
+        "Tlo": 0.04
+      },
+      {
+        "M_from_A1": true,
+        "Thi": 0.1,
+        "Tlo": 0.03
+      }
+    ],
+    "q_r_decimals": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "random_step": [
+      0.05,
+      0.1,
+      0.2,
+      0.38,
+      0.6
+    ],
+    "sigma": [
+      1.0,
+      2.0,
+      3.0
+    ]
+  },
+  "constants": {
+    "A0_step": 0.38,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 2614946071796962751,
+    "f_sham_max": 0.3333333333333333,
+    "force_dt": 0.001,
+    "n_per_traj": 40,
+    "n_traj": 6,
+    "nq": 25,
+    "p_min_floor": 0.8,
+    "p_min_target": 0.9,
+    "penalty_fire_threshold": 1e-12,
+    "pt_Thi": 0.2,
+    "pt_Tlo": 0.05,
+    "pt_trajectory_search_budget": 300000,
+    "pythonhashseed": 0,
+    "raw_indicator_target_bh": 200,
+    "screening_budget": 150000,
+    "tail_frac": 0.25
+  },
+  "contract_a_sha256": "244a27990442d5bf4d3293480d9fc84a115afd3671d446f793d12012f40085a5",
+  "execution_order": [
+    "verify anchor-1 components, instrument, reference-coordinate, and anchor-2 digests",
+    "select T_BH from the complete A0 grid",
+    "run pilot p_mu with h=0.7, sigma=2.0, M=8, Tlo=0.05, Thi=0.20 and select pilot gates",
+    "select h and sigma from the complete A3 grid using pilot gates",
+    "select the A1/A6 ladder and then A7",
+    "repeat p_mu at selected h, sigma, and A1 ladder using 300000 search calls per PT trajectory",
+    "stop without iteration if final gates differ from pilot gates",
+    "derive q_r, p_min, tau values, diagnostic budget, proposal parameters, and Hessian thresholds",
+    "run the final all-arm calibration probe and derive sham and wall-time thresholds",
+    "validate Contract B bindings and emit anchor-3 artifacts"
+  ],
+  "failure_rules": {
+    "gating": "If no g_tol candidate has the minimum relevant one-sided 95% LCB at least p_min_floor, stop. Do not lower p_min below p_min_floor.",
+    "general": "Any non-finite required metric, incomplete candidate set, raw/checkpoint mismatch, digest mismatch, seed outside 106-111, or use of holdout 200-211 stops calibration without Contract B.",
+    "hessian": "If no epsilon has stable physical eigenvalues or rigid-mode rank is not six, stop.",
+    "md": "If no (dt,n_md) candidate satisfies max relative NVE drift below 1e-3 on every calibration state and e_kin candidate, stop.",
+    "pt": "If no PT candidate executes the exact budget on all six seeds, stop. A best available ladder may be selected even if its diagnostic target band is missed, but target miss is recorded.",
+    "sample_size": "Every BH trajectory and every PT anneal layer must retain at least n_per_traj=40 observations after the frozen IPS thinning. No result-dependent reduction is allowed.",
+    "sham": "If an operation-check metric is undefined in any calibration pair, stop rather than silently widening its band."
+  },
+  "instrument_sha256": "4f411d1b54440aa33ac0403fe1a7fb0655b951f59bc13f70c3dff81b70657429",
+  "predecessor": {
+    "failure_record_sha256": "ce4fdf30581f1e41ef75781993e88b13feb51153b26224ba07493af1b0c7570e",
+    "protocol_id": "lj38-audit-v0.3.5-aux-calibration-protocol-2",
+    "sha256": "d626ca30a611cda144195e38000ff3473d5135c2bac3ae84d58c06cd806bb7d4",
+    "status": "CALIBRATION_FAIL"
+  },
+  "protocol_id": "lj38-audit-v0.3.6-calibration-protocol-1",
+  "seed_policy": {
+    "calibration": [
+      106,
+      107,
+      108,
+      109,
+      110,
+      111
+    ],
+    "development_only": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "holdout_forbidden_until_anchor_4": [
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211
+    ]
+  },
+  "selection_rules": {
+    "T_BH": "Run A0 for every candidate and seed at the calibration budget. Minimize median best energy; ties within 1e-9 choose larger median nquench, then smaller T_BH.",
+    "diag_grad_budget": "Let U be all diagnostic gradient calls used by p_mu and Hessian calibration. Freeze ceil(U*1.25/10000)*10000.",
+    "g_tol": "For each ascending candidate compute mu_bh and all three mu_pt one-sided 95% LCBs. Choose the smallest candidate whose minimum LCB is at least p_min_floor.",
+    "g_tol_hill": "Choose the same value as g_tol unless the next smaller candidate has empirical pass rate at least 0.95 in both mu_bh and every mu_pt layer; in that case choose the smallest such candidate.",
+    "h_sigma": "Run A3 for every Cartesian-product candidate at selected T_BH. Feasible means median accept_flip_rate in [0.05,0.25], median nhills at least 10, and all required diagnostics finite. Among feasible candidates minimize abs(log(median_accept_flip_rate/0.10))+abs(log((median_nearest_center_mean/sigma)/1.0)); ties within 1e-12 choose smaller h, then smaller sigma. If none is feasible, stop.",
+    "hessian": "For each reference structure and epsilon compute the projected Hessian. For each epsilon except the finest, compare the 3n-6 physical eigenvalues with the next finer epsilon after removing six smallest-absolute modes. Choose the largest epsilon with maximum absolute difference <=1e-4 and maximum relative difference <=1e-4. zero_eigenvalue_threshold=max(1e-8,10*maximum absolute removed eigenvalue at the selected epsilon). negative_eigenvalue_threshold=max(1e-6,10*maximum physical-spectrum absolute difference to the next finer epsilon).",
+    "k_max": "At the final calibration probe, compute per-seed wall-time ratios for A2/A1, A3/A0, A5/A0, and B1/B2. Freeze ceil(max median ratio*1.25/0.25)*0.25.",
+    "md_integrator": "On six fixed calibration minima, test every dt,n_md,e_kin. A dt,n_md pair is feasible only if maximum NVE relative drift over all states and all e_kin candidates is <1e-3. Select feasible pair maximizing dt*n_md; ties choose smaller dt, then larger n_md.",
+    "p_min": "At selected g_tol, let L be the minimum of the mu_bh LCB and all three mu_pt layer LCBs. Freeze min(p_min_target,floor(L/0.05)*0.05). Stop if this is below p_min_floor.",
+    "proposal_scale": "At selected dt,n_md compute RMS descriptor displacement for every md_e_kin and random_step over the same fixed states and random streams. Choose the pair minimizing abs(log(rms_md/rms_random)); ties choose the larger geometric-mean displacement, then smaller e_kin, then smaller step. Freeze their geometric mean as rms_desc_disp target.",
+    "pt_A1_A6": "With selected h,sigma,g tolerances, run A1 at fixed Tlo=0.05,Thi=0.20 for M in the grid. For each candidate compute the minimum adjacent-pair acceptance and pooled first-two-anneal-interval acceptance. Prefer candidates with min pair acceptance in [0.10,0.45]; among them minimize absolute deviation of pooled pre-tail acceptance from 0.20, then choose smaller M. If none is in band, maximize min pair acceptance, then minimize deviation from 0.20, then smaller M. A6 uses this exact ladder.",
+    "pt_A7": "Run PT-only on each listed ladder with M inherited from A1. Choose the candidate minimizing absolute difference between pooled first-two-anneal-interval acceptance and the selected A1 value; ties choose larger log(Thi/Tlo), then larger Thi.",
+    "q_r": "Using all converged calibration descriptors, form pairs whose energy differs by more than 0.1 epsilon. Let d_min be their minimum descriptor distance. Choose the smallest r for which 4*sqrt(703)*0.5*10^-r < d_min. If no candidate satisfies it, stop.",
+    "sham_bands": "For each seed pair A3 with A4 at final parameters. For the strictly positive metrics penalty_energy_mean, penalty_fire_rate, accept_flip_rate, and nearest_center_mean, form log((A4+1e-12)/(A3+1e-12)); for donor_overlap_rate form A4-A3. For each transformed metric freeze [q05-0.20*max(q95-q05,0.10), q95+0.20*max(q95-q05,0.10)]. A screening pair passes only if every transformed metric lies in its band. f_sham_max is fixed above, not estimated from these six pairs.",
+    "t_max_screen": "Take the maximum median recipient-only wall time among final-probe A4, B2, A6, A7. Scale linearly from calibration budget to 150000, multiply by 1.25, and round upward to the next 10 seconds.",
+    "tau": "Apply the frozen Geyer IPS function separately to each raw gate-indicator trajectory. Freeze tau_bh and tau_pt as the maximum ceil(2*tau_int) across, respectively, all BH trajectories and all PT trajectories/layers. Retain the first n_per_traj observations after deterministic thinning; no burn-in.",
+    "tie_threshold": "Repeat every reference energy evaluation 32 times. Freeze delta_tie=max(1e-6,100*maximum absolute repeat discrepancy). The additional deterministic selection tie epsilon is 1e-12."
+  },
+  "status": "NORMATIVE_CALIBRATION_PROTOCOL",
+  "v035_calibration_data_policy": "The 37 completed v0.3.5 cells are development evidence only and are not read by the v0.3.6 selection driver.",
+  "version": 1
+}
