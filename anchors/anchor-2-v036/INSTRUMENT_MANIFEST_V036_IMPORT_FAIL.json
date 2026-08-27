@@ -1,0 +1,119 @@
+{
+  "anchor": "anchor-2",
+  "authenticity_label": "AUTHENTICITY_UNVERIFIED",
+  "checks": {
+    "1_lj_energy_gradient": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "1b_directional_derivative": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "2_descriptor_invariance": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "2b_canonical_id_roundtrip": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "3_swap_log_alpha": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "4_budget_counter": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "5_gate_predicate": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "6_raw_checkpoint_check": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "7_penalty_and_accept": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "7b_accept_flip_rate": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    },
+    "8_confinement_inactive": {
+      "reason": "instrument import failed: ModuleNotFoundError(\"No module named 'C:\\\\\\\\Users\\\\\\\\nevwi\\\\\\\\Downloads\\\\\\\\論文\\\\\\\\quantum\\\\\\\\md_search_v035'\")",
+      "status": "CHECK_NOT_RUN"
+    }
+  },
+  "contract_id": "lj38-audit-v0.3.5-contractA",
+  "contract_sha256": "cf2fa8d201d6d560f3bf6fed51bdd2842390d594e7307804445c141b7f605580",
+  "environment": {
+    "git": {
+      "branch": "main",
+      "commit": "f93b15dd45cd820c155925c9d2afc100ef64865e",
+      "describe": "anchor-1-v036-1-gf93b15d",
+      "worktree_clean": true
+    },
+    "implementation": "CPython",
+    "numpy": "2.4.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.17.1"
+  },
+  "frozen_tolerances": {
+    "1_lj_energy_gradient": {
+      "atol": 1e-10,
+      "rtol": 1e-12
+    },
+    "1b_directional_derivative": {
+      "atol": 1e-06,
+      "rtol": 2e-05
+    },
+    "2_descriptor_invariance": {
+      "atol": 1e-10,
+      "rtol": 0.0
+    },
+    "2b_canonical_id_roundtrip": {
+      "exact": "bytes"
+    },
+    "3_swap_log_alpha": {
+      "atol": 1e-12,
+      "rtol": 1e-12,
+      "sign": "exact"
+    },
+    "4_budget_counter": {
+      "atol": 0.0,
+      "rtol": 0.0
+    },
+    "5_gate_predicate": {
+      "exact": "decision"
+    },
+    "6_raw_checkpoint_check": {
+      "exact": "raises"
+    },
+    "7_penalty_and_accept": {
+      "atol": 1e-12,
+      "rtol": 1e-12
+    },
+    "7b_accept_flip_rate": {
+      "exact": "value"
+    },
+    "8_confinement_inactive": {
+      "exact": "zero"
+    }
+  },
+  "g_test": 0.0001,
+  "generated_at_utc": "2026-08-27T00:09:54.794395Z",
+  "instrument_file_sha256": null,
+  "instrument_label": "INSTRUMENT_CHECK_FAIL",
+  "instrument_module": "C:\\Users\\nevwi\\Downloads\\論文\\quantum\\md_search_v035.py",
+  "instrument_version": null,
+  "summary": {
+    "fail": 0,
+    "not_run": 11,
+    "ok": 0
+  },
+  "temporal_label": "TEMPORAL_PRECOMMITMENT_UNVERIFIED"
+}

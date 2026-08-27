@@ -1,0 +1,322 @@
+{
+  "anchor": "anchor-2",
+  "authenticity_label": "AUTHENTICITY_UNVERIFIED",
+  "checks": {
+    "1_lj_energy_gradient": {
+      "n_confinement_active": 4,
+      "n_samples": 24,
+      "status": "OK",
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-12
+      },
+      "worst_normalised_deviation_energy": 0.0026565254582469914,
+      "worst_normalised_deviation_gradient": 0.05587461475521467
+    },
+    "1b_directional_derivative": {
+      "n_samples": 20,
+      "status": "OK",
+      "tolerance": {
+        "atol": 1e-06,
+        "rtol": 2e-05
+      },
+      "worst_normalised_deviation": 0.0012723553400931266
+    },
+    "2_descriptor_invariance": {
+      "group": "E(3) x S_38",
+      "n_samples": 20,
+      "status": "OK",
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 0.0
+      },
+      "worst_invariance_deviation": 7.105427357601002e-15,
+      "worst_vs_reference_deviation": 1.7763568394002505e-15
+    },
+    "2b_canonical_id_roundtrip": {
+      "mismatches": 0,
+      "n_samples": 20,
+      "status": "OK",
+      "tolerance": {
+        "exact": "bytes"
+      }
+    },
+    "3_swap_log_alpha": {
+      "n_samples": 200,
+      "orientation_probe_ok": true,
+      "sign_errors": 0,
+      "status": "OK",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12,
+        "sign": "exact"
+      },
+      "worst_normalised_deviation": 0.0
+    },
+    "4_budget_counter": {
+      "budget": 1200,
+      "pass_requires": [
+        "search_grad_used == budget",
+        "incomplete_quenches field recorded"
+      ],
+      "per_method": [
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A0_basinhop",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A1_hist_X_force",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A2_hist_M_force",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A3_soft_taboo_bh",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A4_yoked_sham_bh",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A5_visitcount_bh",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A6_pt_only_same_ladder",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "A7_pt_matched_accept",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "B1_md_proposal",
+          "used": 1200
+        },
+        {
+          "exact": true,
+          "incomplete_recorded": true,
+          "method": "B2_rand_proposal",
+          "used": 1200
+        }
+      ],
+      "status": "OK",
+      "tolerance": {
+        "atol": 0.0,
+        "rtol": 0.0
+      }
+    },
+    "5_gate_predicate": {
+      "g_test": 0.0001,
+      "status": "OK",
+      "table": [
+        {
+          "complete": true,
+          "expected": true,
+          "gnorm": 9e-05,
+          "got": true,
+          "ok": true
+        },
+        {
+          "complete": true,
+          "expected": false,
+          "gnorm": 0.0001,
+          "got": false,
+          "ok": true
+        },
+        {
+          "complete": true,
+          "expected": false,
+          "gnorm": 0.00011000000000000002,
+          "got": false,
+          "ok": true
+        },
+        {
+          "complete": false,
+          "expected": false,
+          "gnorm": 9e-05,
+          "got": false,
+          "ok": true
+        },
+        {
+          "complete": false,
+          "expected": false,
+          "gnorm": 0.0001,
+          "got": false,
+          "ok": true
+        },
+        {
+          "complete": false,
+          "expected": false,
+          "gnorm": 0.00011000000000000002,
+          "got": false,
+          "ok": true
+        }
+      ],
+      "tolerance": {
+        "exact": "decision"
+      }
+    },
+    "6_raw_checkpoint_check": {
+      "runs": {
+        "normal": {
+          "returncode": 1,
+          "stdout": ""
+        },
+        "optimised": {
+          "returncode": 1,
+          "stdout": ""
+        }
+      },
+      "status": "FAIL",
+      "tolerance": {
+        "exact": "raises"
+      }
+    },
+    "7_penalty_and_accept": {
+      "n_samples": 50,
+      "status": "OK",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "worst_normalised_deviation_accept": 0.0,
+      "worst_normalised_deviation_penalty": 7.428654947946898e-05
+    },
+    "7b_accept_flip_rate": {
+      "expected": 0.072,
+      "got": 0.072,
+      "n_samples": 500,
+      "status": "OK",
+      "tolerance": {
+        "exact": "value"
+      }
+    },
+    "8_confinement_inactive": {
+      "delta_equiv": 0.676049,
+      "delta_equiv_recomputed": 0.6760490000000061,
+      "status": "OK",
+      "structures": [
+        {
+          "Rc": 7.564444665297667,
+          "confinement_penalty": 0.0,
+          "energy_abs_diff": 4.882105315573426e-07,
+          "file_sha256": "61be40be128a801f1f2e8b8c7c047c87e66676d65831957424a132e95ab58454",
+          "label": "fcc",
+          "max_radius": 1.7495334120745287,
+          "n_atoms": 38,
+          "path": "C:\\Users\\nevwi\\Downloads\\論文\\quantum\\refs\\LJ38_fcc.txt",
+          "penalty_exactly_zero": true,
+          "recomputed_energy": -173.92842651178947,
+          "reference_energy": -173.928427
+        },
+        {
+          "Rc": 7.564444665297667,
+          "confinement_penalty": 0.0,
+          "energy_abs_diff": 4.1564979369468347e-07,
+          "file_sha256": "4a299690068a3f6296074a855c7324299c877fa70cb7e3eb88c1d57d5ffb0a9a",
+          "label": "ico",
+          "max_radius": 1.9520627546823777,
+          "n_atoms": 38,
+          "path": "C:\\Users\\nevwi\\Downloads\\論文\\quantum\\refs\\LJ38_ico.txt",
+          "penalty_exactly_zero": true,
+          "recomputed_energy": -173.2523784156498,
+          "reference_energy": -173.252378
+        }
+      ],
+      "tolerance": {
+        "exact": "zero"
+      }
+    }
+  },
+  "contract_id": "lj38-audit-v0.3.5-contractA",
+  "contract_sha256": "cf2fa8d201d6d560f3bf6fed51bdd2842390d594e7307804445c141b7f605580",
+  "environment": {
+    "git": {
+      "branch": "main",
+      "commit": "f93b15dd45cd820c155925c9d2afc100ef64865e",
+      "describe": "anchor-1-v036-1-gf93b15d",
+      "worktree_clean": true
+    },
+    "implementation": "CPython",
+    "numpy": "2.4.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.17.1"
+  },
+  "frozen_tolerances": {
+    "1_lj_energy_gradient": {
+      "atol": 1e-10,
+      "rtol": 1e-12
+    },
+    "1b_directional_derivative": {
+      "atol": 1e-06,
+      "rtol": 2e-05
+    },
+    "2_descriptor_invariance": {
+      "atol": 1e-10,
+      "rtol": 0.0
+    },
+    "2b_canonical_id_roundtrip": {
+      "exact": "bytes"
+    },
+    "3_swap_log_alpha": {
+      "atol": 1e-12,
+      "rtol": 1e-12,
+      "sign": "exact"
+    },
+    "4_budget_counter": {
+      "atol": 0.0,
+      "rtol": 0.0
+    },
+    "5_gate_predicate": {
+      "exact": "decision"
+    },
+    "6_raw_checkpoint_check": {
+      "exact": "raises"
+    },
+    "7_penalty_and_accept": {
+      "atol": 1e-12,
+      "rtol": 1e-12
+    },
+    "7b_accept_flip_rate": {
+      "exact": "value"
+    },
+    "8_confinement_inactive": {
+      "exact": "zero"
+    }
+  },
+  "g_test": 0.0001,
+  "generated_at_utc": "2026-08-27T00:10:42.415106Z",
+  "instrument_file_sha256": "4f411d1b54440aa33ac0403fe1a7fb0655b951f59bc13f70c3dff81b70657429",
+  "instrument_label": "INSTRUMENT_CHECK_FAIL",
+  "instrument_module": "md_search_v035",
+  "instrument_version": "lj38-audit-instrument-v0.3.5",
+  "summary": {
+    "fail": 1,
+    "not_run": 0,
+    "ok": 10
+  },
+  "temporal_label": "TEMPORAL_PRECOMMITMENT_UNVERIFIED"
+}
